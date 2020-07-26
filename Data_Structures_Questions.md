@@ -3,31 +3,37 @@ Answer the following questions for each of the data structures you implemented a
 ## Stack
 
 1. What is the runtime complexity of `push` using a list?
-
+    -O(1), amortized
+    -Individual operations can be O(n) if for example you are building a real-time system
 2. What is the runtime complexity of `push` using a linked list?
-
+    -O(1) always
 3. What is the runtime complexity of `pop` using a list?
-
+    -O(1) always
+    -This is only true because python lists don't move a list when the size is reduced, only when it's potential capacity needs to increase. If this wasn't the case, and it always moved the list to an exact size allocation, it would be O(n).
 4. What is the runtime complexity of `pop` using a linked list?
-
+    -O(1), always
 5. What is the runtime complexity of `len` using a list?
+    -O(1), always
+    -Lists are a pointer + a length. If it was a terminated with a sentinal instead of storing length, it would be O(n)
 
 6. What is the runtime complexity of `len` using a linked list?
+    -O(n)
+    -This could easily be O(1) if the length of the LinkedList was stored and maintained
 
 ## Queue
 
 1. What is the runtime complexity of `enqueue` using a list?
-
+    -Amortized O(1)
 2. What is the runtime complexity of `enqueue` using a linked list?
-
+    -Inserting: O(1), if done at the head, O(n) if anywhere else since we have to reach that position by traveseing the linkedlist linearly.
 3. What is the runtime complexity of `dequeue` using a list?
-
+    -Remove: O(n)
 4. What is the runtime complexity of `dequeue` using a linked list?
-
+    -Deleting: O(1), if done at the head, O(n) if anywhere else since we have to reach that position by traveseing the linkedlist linearly.
 5. What is the runtime complexity of `len` using a list?
-
+    -len is an O(1) because in your RAM, lists are stored as tables
 6. What is the runtime complexity of `len` using a linked list?
-
+    -O(1)
 ## Doubly Linked List
 
 1. What is the runtime complexity of `ListNode.insert_after`?
