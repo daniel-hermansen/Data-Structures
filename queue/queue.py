@@ -9,20 +9,40 @@ return elements in First In First Out order.
    Make sure the Queue tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Queue?
+    - Using a list means that either enqueuing or dequeuing a value is O(n)
+    - Using a a LinkedList means that both are O(1)
    
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
 """
+
+from singly_linked_list import LinkedList
+
+
 class Queue:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
-    
+        self.storage = LinkedList()
+
+    def __str__(self):
+        if self.storage.length == 0:
+            return 'the Queue is empty'
+        n = self.storage.head
+        output = ''
+        while n is not None:
+            output += f'[{n.value}]'
+            n = n.next
+        return output
+
     def __len__(self):
-        pass
+        return self.storage.getLength()
 
     def enqueue(self, value):
-        pass
+        self.storage.add_to_tail(value)
 
     def dequeue(self):
-        pass
+        if self.storage.length == 0:
+            return None
+        value = self.storage.head.value
+        self.storage.remove_head()
+        return value
